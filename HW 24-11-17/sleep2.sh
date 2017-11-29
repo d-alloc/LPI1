@@ -1,12 +1,58 @@
 #!/usr/bin/env bash
 #Author: Roei Kessler - D-Alloc
 #Description: Waits for 2.8 seconds and create a file from a to z <example file_a>
-#Version: 1
+#Version: 1.1
 #Date: 28-11-17
-for i in {a..z}
-do
-	sleep 2.8
-	touch file_$i
-done
-ls -l
+sleep 2.8
+touch file_a
+sleep 2.8
+touch file_b
+sleep 2.8
+touch file_c
+sleep 2.8
+touch file_d
+sleep 2.8
+touch file_e
+sleep 2.8
+touch file_f
+sleep 2.8
+touch file_g
+sleep 2.8
+touch file_h
+sleep 2.8
+touch file_i
+sleep 2.8
+touch file_j
+sleep 2.8
+touch file_k
+sleep 2.8
+touch file_l
+sleep 2.8
+touch file_m
+sleep 2.8
+touch file_n
+sleep 2.8
+touch file_o
+sleep 2.8
+touch file_p
+sleep 2.8
+touch file_q
+sleep 2.8
+touch file_r
+sleep 2.8
+touch file_s
+sleep 2.8
+touch file_t
+sleep 2.8
+touch file_u
+sleep 2.8
+touch file_v
+sleep 2.8
+touch file_w
+sleep 2.8
+touch file_x
+sleep 2.8
+touch file_y
+sleep 2.8
+touch file_z
 
