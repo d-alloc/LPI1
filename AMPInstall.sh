@@ -13,12 +13,17 @@
 os="$(sudo cat /etc/*-release | grep PRETTY_NAME | awk '{print$1}' | cut -c 14-)"
 echo $os
 if [ $os == 'CentOS' ]
-then
-package="yum"
-echo $package > /home/Scripts/test
-else
-echo 'System Is Not Supported For This Script'
-exit 1
+	then
+	package="yum"
+	echo $package > /tmp/ampinstall.log
+	elif [ $os == 'openSUSE' ]
+                then
+                        package="zypper"
+                        echo $package > /tmp/ampinstall.log
+	else
+	echo 'System Is Not Supported For This Script'
+	echo 'Script Doesn't Support This OS At This Time >> /tmp/ampinstall.log	
+	exit 1
 fi
 
 #Installing Web Service
