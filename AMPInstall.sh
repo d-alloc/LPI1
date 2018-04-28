@@ -2,7 +2,7 @@
 #Author: Roei Kessler D-Alloc
 #Date: 28-04-18
 #Description: Script that will install the following: Web Service, SQL Service and Scripting language
-############  After installing service a webpage will be created with personal customazation
+############  After installing service a webpage will be created with personal customization
 #Version: 1.0
 
 #Check The OS Distrebution
@@ -13,12 +13,17 @@
 os="$(sudo cat /etc/*-release | grep PRETTY_NAME | awk '{print$1}' | cut -c 14-)"
 echo $os
 if [ $os == 'CentOS' ]
-then
-package="yum"
-echo $package > /home/Scripts/test
-else
-echo 'System Is Not Supported For This Script'
-exit 1
+	then
+	package="yum"
+	echo $package > /tmp/ampinstall.log
+	elif [ $os == 'openSUSE' ]
+                then
+                        package="zypper"
+                        echo $package > /tmp/ampinstall.log
+	else
+	echo 'System Is Not Supported For This Script'
+	echo 'Script Doesn't Support This OS At This Time >> /tmp/ampinstall.log	
+	exit 1
 fi
 
 #Installing Web Service
