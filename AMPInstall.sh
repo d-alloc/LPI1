@@ -16,13 +16,14 @@ if [ $os == 'CentOS' ]
 	then
 	package="yum"
 	echo $package > /tmp/ampinstall.log
+	$package install wget -y
 	elif [ $os == 'openSUSE' ]
                 then
-                        package="zypper"
-                        echo $package > /tmp/ampinstall.log
+                package="zypper"
+                echo $package > /tmp/ampinstall.log
 	else
 	echo 'System Is Not Supported For This Script'
-	echo 'Script Doesn't Support This OS At This Time >> /tmp/ampinstall.log	
+	echo 'Script Doesn't Support This OS At This Time >> /tmp/ampinstall.log
 	exit 1
 fi
 
@@ -33,7 +34,7 @@ echo "Installing Web Service"
 echo "--------------------------------------"
 echo "Please Select One Of The Option Below:"
 echo "1) Apache"
-echo "2) Ngnix" 
+echo "2) Ngnix"
 echo "3) Go To SQL Installation"
 read webservice
 
@@ -41,13 +42,13 @@ if [ $webservice == 1 ]
 	then
 	$package install httpd -y
 elif [ $webservice == 2 ]
-	then
-	$package install ngnix -y
+			then
+			$package install ngnix -y
 elif [ $webservice == 3 ]
-	then
-	echo "Now We Will Install SQL Service"
+			then
+			echo "Now We Will Install SQL Service"
 else
-	echo "Incorrect Input Please try again"
+			echo "Incorrect Input Please try again"
 fi
 
 #Installing SQL Service
@@ -66,22 +67,25 @@ read sqlservice
 
 if [ $sqlservice == 1 ]
         then
-	$package --enablerepo=centos-sclo-rh -y install rh-mysql56-mysql-server
+				wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+        sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+        $package update -y
+        $package install mysql-server -y
 elif [ $sqlservice == 2 ]
         then
-	$package install mariadb -y
+				$package install mariadb -y
 elif [ $sqlservice == 3 ]
         then
-	$package install sqlite -y
+				$package install sqlite -y
 elif [ $sqlservice == 4 ]
         then
-	$package install postgresql -y
+				$package install postgresql -y
 elif [ $sqlservice == 5 ]
         then
-	$package install mongodb -y
+				$package install mongodb -y
 elif [ $sqlservice == 6?ce == 6 ]
         then
-	echo "Now We Will Install Scripting Language"
+				echo "Now We Will Install Scripting Language"
 else
-    	echo "Incorrect Input Please try again"
+    		echo "Incorrect Input Please try again"
 fi
