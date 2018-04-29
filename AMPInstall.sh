@@ -4,7 +4,8 @@
 #Description: Script that will install the following: Web Service, SQL Service and Scripting language
 ############  After installing service a webpage will be created with personal customization
 #Version: 1.0
-
+sqlService=$false
+webService=$false
 #Check The OS Distrebution
 #Variable 'os' saves the output of the cat which returns the OS
 #Variable 'package' hold the command that will be required later to install a package (apt-get, yum, zypper etc..)
@@ -54,7 +55,8 @@ fi
 
 #Installing SQL Service
 #Variable 'sqlservice' holds user input	for which service he wants to install
-
+while [ $sqlService != ture]
+do
 echo "Installing SQL Service"
 echo "--------------------------------------"
 echo "Please Select One Of The Option Below:"
@@ -87,6 +89,7 @@ elif [ $sqlservice == 5 ]
 elif [ $sqlservice == 6?ce == 6 ]
         then
 				echo "Now We Will Install Scripting Language"
+				sqlService=$true
 else
     		echo "Incorrect Input Please try again"
 fi
