@@ -43,6 +43,7 @@ if [ $webservice == 1 ]
 	$package install httpd -y
 elif [ $webservice == 2 ]
 			then
+			$package install epel-release -y
 			$package install ngnix -y
 elif [ $webservice == 3 ]
 			then
